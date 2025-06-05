@@ -64,14 +64,14 @@ def generate_image_description(image, temperature, top_p, max_new_tokens):
 
 # --- Gradio Interface ---
 with gr.Blocks() as demo:
-    gr.Markdown("# 🧠 Multimodal Gradio App (T4 Friendly)")
+    gr.Markdown("# Multimodal Gradio App (T4 Friendly)")
 
     with gr.Row():
         temperature = gr.Slider(0.1, 1.0, value=0.7, label="Temperature")
         top_p = gr.Slider(0.1, 1.0, value=0.9, label="Top P")
         max_new_tokens = gr.Slider(10, 500, value=100, label="Max New Tokens")
 
-    with gr.Tab("🖼️ Image Description"):
+    with gr.Tab("Image Description"):
         image_input = gr.Image(type="pil", label="Upload Image")
         description_output = gr.Textbox(label="Generated Description")
         describe_button = gr.Button("Generate Description")
@@ -81,7 +81,7 @@ with gr.Blocks() as demo:
             outputs=description_output
         )
 
-    with gr.Tab("💻 Code Generation"):
+    with gr.Tab(" Code Generation"):
         code_prompt = gr.Textbox(label="Code Prompt (e.g., 'sort a list of numbers')")
         code_output = gr.Textbox(label="Generated Code", lines=12)
         code_button = gr.Button("Generate Code")
