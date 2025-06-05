@@ -17,81 +17,81 @@ Image Captioning using BLIP (Salesforce/blip-image-captioning-base)
 Range	Typical Default
 0.1 – 1.0	0.7
 
- What it does:
-Temperature controls the randomness of the output by scaling the model’s confidence in its predictions.
-
-Low values (e.g., 0.1 – 0.4):
-
-The model becomes more confident and deterministic.
-
-It tends to pick the most likely next word every time.
-
-Result: Factual, repetitive, or safe outputs.
-
-High values (e.g., 0.8 – 1.0):
-
-The model explores more options by giving more weight to lower-probability words.
-
-Result: More creative, diverse, or unexpected outputs — but potentially less relevant or coherent.
-
-🎯 Use Cases:
-Use low temperature for tasks requiring accuracy (e.g., math, summarization).
-
-Use high temperature for open-ended tasks (e.g., story writing, idea generation).
+    What it does:
+   Temperature controls the randomness of the output by scaling the model’s confidence in its predictions.
+   
+   Low values (e.g., 0.1 – 0.4):
+   
+   The model becomes more confident and deterministic.
+   
+   It tends to pick the most likely next word every time.
+   
+   Result: Factual, repetitive, or safe outputs.
+   
+   High values (e.g., 0.8 – 1.0):
+   
+   The model explores more options by giving more weight to lower-probability words.
+   
+   Result: More creative, diverse, or unexpected outputs — but potentially less relevant or coherent.
+   
+   🎯 Use Cases:
+   Use low temperature for tasks requiring accuracy (e.g., math, summarization).
+   
+   Use high temperature for open-ended tasks (e.g., story writing, idea generation).
 
 **2. Top-p (Nucleus Sampling)**
 Range	Typical Default
 0.1 – 1.0	0.9
 
- What it does:
-Top-p sampling chooses from the smallest set of words whose combined probability mass exceeds p.
-
-For example, with top_p=0.9, the model samples from the top 90% most probable next words.
-
-This focuses generation on the most plausible choices without always choosing the highest one.
-
- Why it's useful:
-Prevents the model from using very low-probability (nonsensical) words.
-
-Retains some diversity without being completely random.
-
- Use Cases:
-Ideal for most creative and reasoning tasks.
-
-Lower top_p (e.g., 0.5–0.7) can make output more focused.
-
-Higher top_p (e.g., 0.95–1.0) increases the pool of possible outputs.
+    What it does:
+   Top-p sampling chooses from the smallest set of words whose combined probability mass exceeds p.
+   
+   For example, with top_p=0.9, the model samples from the top 90% most probable next words.
+   
+   This focuses generation on the most plausible choices without always choosing the highest one.
+   
+    Why it's useful:
+   Prevents the model from using very low-probability (nonsensical) words.
+   
+   Retains some diversity without being completely random.
+   
+    Use Cases:
+   Ideal for most creative and reasoning tasks.
+   
+   Lower top_p (e.g., 0.5–0.7) can make output more focused.
+   
+   Higher top_p (e.g., 0.95–1.0) increases the pool of possible outputs.
 
  **3. Max New Tokens**
-Range	Typical Default
-10 – 500	100
-
- What it does:
-Controls the maximum number of tokens the model is allowed to generate in response to the input.
-
-Tokens ≠ words. One word can be made of multiple tokens.
-
-For example, “ChatGPT is amazing” might be 4 words but 5 tokens.
-
-Implications:
-Short max tokens (e.g., 10–50) may result in truncated or incomplete responses.
-
-Longer max tokens (e.g., 200–500) allow for detailed outputs but can be slower and consume more resources.
-
-Use Cases:
-For brief answers, summaries: use 50–100.
-
-For long explanations, code generation, or storytelling: use 200+.
-
-How They Work Together
-These parameters interact to shape the output:
-
-High temperature + high top_p → highly varied and creative text.
-
-Low temperature + low top_p → safe, repetitive, predictable text.
-
-max_new_tokens limits the length, while the other two control the style and diversity.
-
+   Range	Typical Default
+   10 – 500	100
+   
+    What it does:
+   Controls the maximum number of tokens the model is allowed to generate in response to the input.
+   
+   Tokens ≠ words. One word can be made of multiple tokens.
+   
+   For example, “ChatGPT is amazing” might be 4 words but 5 tokens.
+   
+   Implications:
+   Short max tokens (e.g., 10–50) may result in truncated or incomplete responses.
+   
+   Longer max tokens (e.g., 200–500) allow for detailed outputs but can be slower and consume more resources.
+   
+   Use Cases:
+   For brief answers, summaries: use 50–100.
+   
+   For long explanations, code generation, or storytelling: use 200+.
+   
+   How They Work Together
+   These parameters interact to shape the output:
+   
+   High temperature + high top_p → highly varied and creative text.
+   
+   Low temperature + low top_p → safe, repetitive, predictable text.
+   
+   max_new_tokens limits the length, while the other two control the style and diversity.
+   
 
 
 **Example Prompts**
