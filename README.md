@@ -28,3 +28,8 @@ Image Captioning using BLIP (Salesforce/blip-image-captioning-base)
 
 -Image to text task
 ![capture4](https://github.com/user-attachments/assets/8cc1e634-8c42-4946-9afb-4ee8f295b744)
+
+
+Note on Model Usage:
+
+Although I initially considered using more advanced vision-language models such as CmPLUG-Owl2, LLaVA-NeXT, Qwen-VL-Chat, and deepseek-vl-1.3b-4bitill-qwen-1.5b, I ultimately did not incorporate them due to resource limitations. Specifically, when working in Google Colab, these models exceeded the available GPU memory (often leading to out-of-memory errors or runtime crashes). As a result, I opted for lighter-weight models that are more T4-friendly Salesforce/blip-image-captioning-base to ensure a smoother and more responsive user experience during development and testing.
